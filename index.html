@@ -3,31 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>3D Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Expense Tracker</h1>
-        
-        <!-- Form to add expenses -->
-        <form id="expense-form">
-            <input type="text" id="expense-name" placeholder="Expense Name" required>
-            <input type="number" id="expense-amount" placeholder="Amount" required>
-            <button type="submit">Add Expense</button>
-        </form>
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
 
-        <!-- Display expenses -->
-        <div class="expense-list">
-            <h2>Expenses</h2>
-            <ul id="expenses"></ul>
+    <div class="container">
+        <!-- Header with 3D effect -->
+        <div class="header-card">
+            <div class="header-content">
+                <i class="fas fa-wallet header-icon"></i>
+                <h1 class="main-title">3D Expense Tracker</h1>
+                <p class="subtitle">Manage your finances in style</p>
+            </div>
         </div>
 
-        <!-- Total amount display -->
-        <div class="total">
-            <h2>Total: $<span id="total-amount">0</span></h2>
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="total-amount">0.00</h3>
+                    <p>Total Spent</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="expense-count">0</h3>
+                    <p>Total Expenses</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="today-count">0</h3>
+                    <p>Today's Expenses</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Expense Form -->
+        <div class="form-card">
+            <div class="form-header">
+                <i class="fas fa-plus-circle"></i>
+                <h2>Add New Expense</h2>
+            </div>
+            <form id="expense-form">
+                <div class="input-group">
+                    <label for="expense-name">
+                        <i class="fas fa-tag"></i>
+                        Expense Name
+                    </label>
+                    <input type="text" id="expense-name" placeholder="Enter expense name" required>
+                </div>
+                <div class="input-group">
+                    <label for="expense-amount">
+                        <i class="fas fa-dollar-sign"></i>
+                        Amount
+                    </label>
+                    <input type="number" id="expense-amount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="expense-category">
+                        <i class="fas fa-folder"></i>
+                        Category
+                    </label>
+                    <select id="expense-category" required>
+                        <option value="">Select Category</option>
+                        <option value="food">🍔 Food & Dining</option>
+                        <option value="transport">🚗 Transportation</option>
+                        <option value="shopping">🛍️ Shopping</option>
+                        <option value="bills">💡 Bills & Utilities</option>
+                        <option value="entertainment">🎬 Entertainment</option>
+                        <option value="health">🏥 Healthcare</option>
+                        <option value="education">📚 Education</option>
+                        <option value="other">📦 Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                    Add Expense
+                </button>
+            </form>
+        </div>
+
+        <!-- Expense List -->
+        <div class="expenses-card">
+            <div class="expenses-header">
+                <h2>
+                    <i class="fas fa-history"></i>
+                    Recent Expenses
+                </h2>
+                <button id="clear-all" class="clear-btn">
+                    <i class="fas fa-trash"></i>
+                    Clear All
+                </button>
+            </div>
+            <div class="expenses-container">
+                <div id="empty-state" class="empty-state">
+                    <i class="fas fa-inbox"></i>
+                    <p>No expenses yet</p>
+                    <span>Add your first expense above</span>
+                </div>
+                <div id="expenses-list" class="expenses-list"></div>
+            </div>
         </div>
     </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
 
     <script src="script.js"></script>
 </body>
