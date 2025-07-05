@@ -16,30 +16,39 @@
         <div class="floating-shape shape-3"></div>
         <div class="floating-shape shape-4"></div>
         <div class="floating-shape shape-5"></div>
+        <div class="floating-shape shape-6"></div>
     </div>
 
-    <div class="container">
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <div class="container" id="main-content">
         <!-- Header with 3D effect -->
-        <div class="header-card">
+        <div class="header-card animate-on-scroll">
             <div class="header-content">
                 <i class="fas fa-wallet header-icon"></i>
                 <h1 class="main-title">3D Expense Tracker</h1>
-                <p class="subtitle">Manage your finances in style</p>
+                <p class="subtitle">Manage your finances in style with beautiful 3D effects</p>
             </div>
         </div>
 
         <!-- Stats Cards -->
         <div class="stats-grid">
-            <div class="stat-card">
+            <div class="stat-card animate-on-scroll delay-1">
                 <div class="stat-icon">
                     <i class="fas fa-dollar-sign"></i>
                 </div>
                 <div class="stat-content">
-                    <h3 id="total-amount">0.00</h3>
+                    <h3 id="total-amount">$0.00</h3>
                     <p>Total Spent</p>
                 </div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card animate-on-scroll delay-2">
                 <div class="stat-icon">
                     <i class="fas fa-list"></i>
                 </div>
@@ -48,19 +57,19 @@
                     <p>Total Expenses</p>
                 </div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card animate-on-scroll delay-3">
                 <div class="stat-icon">
-                    <i class="fas fa-calendar-day"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
                 <div class="stat-content">
-                    <h3 id="today-count">0</h3>
-                    <p>Today's Expenses</p>
+                    <h3 id="average-expense">$0.00</h3>
+                    <p>Average Expense</p>
                 </div>
             </div>
         </div>
 
         <!-- Add Expense Form -->
-        <div class="form-card">
+        <div class="form-card animate-on-scroll">
             <div class="form-header">
                 <i class="fas fa-plus-circle"></i>
                 <h2>Add New Expense</h2>
@@ -105,7 +114,7 @@
         </div>
 
         <!-- Expense List -->
-        <div class="expenses-card">
+        <div class="expenses-card animate-on-scroll">
             <div class="expenses-header">
                 <h2>
                     <i class="fas fa-history"></i>
@@ -127,8 +136,9 @@
         </div>
     </div>
 
-    <!-- Notification Container -->
-    <div id="notification-container" class="notification-container"></div>
+    <!-- Accessibility features -->
+    <div aria-live="polite" id="sr-announcements"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <script src="script.js"></script>
 </body>
